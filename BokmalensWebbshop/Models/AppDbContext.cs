@@ -1,21 +1,27 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 
 namespace BokmalensWebbshop.Models
 {
-    public class AppDbContext: DbContext
+    public class AppDbContext : IdentityDbContext<IdentityUser>
     {
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
 
         }
 
-        public DbSet<Book> Books { get; set; }
         public DbSet<Category> Categories { get; set; }
+
+        public DbSet<Book> Books { get; set; }
         public DbSet<ShoppingCartItem> ShoppingCartItems { get; set; }
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<OrderDetail> OrderDetails { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -138,7 +144,7 @@ namespace BokmalensWebbshop.Models
                 CategoryId = 7,
                 ImageUrl = "Orlando.jpg",
                 InStock = true,
-                IsBookOfTheWeek = true,
+                IsBookOfTheWeek = false,
             });
             modelBuilder.Entity<Book>().HasData(new Book
             {
@@ -150,7 +156,7 @@ namespace BokmalensWebbshop.Models
                 CategoryId = 1,
                 ImageUrl = "Picture_of_dorian_gray.jpg",
                 InStock = true,
-                IsBookOfTheWeek = true,
+                IsBookOfTheWeek = false,
             });
             modelBuilder.Entity<Book>().HasData(new Book
             {

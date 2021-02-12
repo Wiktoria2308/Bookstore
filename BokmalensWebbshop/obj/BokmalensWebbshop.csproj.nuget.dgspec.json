@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Wiktoria\\source\\repos\\BokmalensWebbshop\\BokmalensWebbshop\\BokmalensWebbshop.csproj": {}
+    "C:\\Users\\Elev\\Desktop\\BokmalensWebbshop\\BokmalensWebbshop\\BokmalensWebbshop.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Wiktoria\\source\\repos\\BokmalensWebbshop\\BokmalensWebbshop\\BokmalensWebbshop.csproj": {
+    "C:\\Users\\Elev\\Desktop\\BokmalensWebbshop\\BokmalensWebbshop\\BokmalensWebbshop.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Wiktoria\\source\\repos\\BokmalensWebbshop\\BokmalensWebbshop\\BokmalensWebbshop.csproj",
+        "projectUniqueName": "C:\\Users\\Elev\\Desktop\\BokmalensWebbshop\\BokmalensWebbshop\\BokmalensWebbshop.csproj",
         "projectName": "BokmalensWebbshop",
-        "projectPath": "C:\\Users\\Wiktoria\\source\\repos\\BokmalensWebbshop\\BokmalensWebbshop\\BokmalensWebbshop.csproj",
-        "packagesPath": "C:\\Users\\Wiktoria\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Wiktoria\\source\\repos\\BokmalensWebbshop\\BokmalensWebbshop\\obj\\",
+        "projectPath": "C:\\Users\\Elev\\Desktop\\BokmalensWebbshop\\BokmalensWebbshop\\BokmalensWebbshop.csproj",
+        "packagesPath": "C:\\Users\\Elev\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Elev\\Desktop\\BokmalensWebbshop\\BokmalensWebbshop\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Wiktoria\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Elev\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -40,15 +40,27 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "dependencies": {
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.11, )"
+            },
+            "Microsoft.AspNetCore.Identity.UI": {
+              "target": "Package",
+              "version": "[3.1.11, )"
+            },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[5.0.2, )"
+              "version": "[3.1.11, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[5.0.2, )"
+              "version": "[3.1.11, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[3.1.4, )"
             }
           },
           "imports": [
@@ -69,7 +81,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     }

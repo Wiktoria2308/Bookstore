@@ -19,7 +19,7 @@ namespace BokmalensWebbshop.Controllers
             _categoryRepository = categoryRepository;
         }
 
-        public ViewResult List()
+       /* public ViewResult List()
         {
             BooksListViewModel booksListViewModel = new BooksListViewModel();
             booksListViewModel.Books = _bookRepository.AllBooks;
@@ -27,7 +27,7 @@ namespace BokmalensWebbshop.Controllers
            // booksListViewModel.CurrentCategory = "Science fiction";
            
             return View(booksListViewModel);
-        }
+        }*/
 
         public IActionResult Details(int id)
         {
@@ -35,6 +35,30 @@ namespace BokmalensWebbshop.Controllers
             if (book == null)
                 return NotFound();
             return View(book);
+        }
+
+        public ViewResult List(string category)
+        {
+            IEnumerable<Book> books;
+            string currentCategory;
+
+            if(string.IsNullOrEmpty(category))
+            {
+                books = _bookRepository.AllBooks.OrderBy(b => b.BookId);
+                currentCategory = "All books";
+            }
+            else
+            {
+                books = _bookRepository.AllBooks.Where(b => b.Category.CategoryName == category)
+                    .OrderBy(b => b.BookId);
+                currentCategory = _categoryRepository.AllCategories.FirstOrDefault(c => c.CategoryName == category)?.CategoryName;
+            }
+
+            return View(new BooksListViewModel
+            {
+                Books = books,
+                CurrentCategory = currentCategory
+            });
         }
     }
 }

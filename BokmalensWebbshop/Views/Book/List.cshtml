@@ -2,9 +2,19 @@
 
 
 
-<div class="d-flex flex-wrap">
-    @foreach (var book in Model.Books)
-    {
-        <partial name="_BookCard" model="book" />
-    }
-</div>
+
+<div class="hero-image-books mt-5">
+    <div class="hero-text">
+        <h1 class="hero-title">Meet your next favourite book</h1>
+       
+    </div>
+    </div>
+
+    
+<h4 class="text-left mt-5 mb-3 ml-2" style="font-weight: 300">@Model.CurrentCategory</h4>
+    <div class="d-flex flex-wrap" style=" margin-bottom:5rem;">
+        @foreach (var book in Model.Books)
+        {
+            <partial name="_BookCard" model="book" />
+        }
+    </div>

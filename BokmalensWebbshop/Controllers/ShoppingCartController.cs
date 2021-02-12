@@ -41,7 +41,7 @@ namespace BokmalensWebbshop.Controllers
             {
                 _shoppingCart.AddToCart(selectedBook, 1);
             }
-            return RedirectToAction("Index");
+           return RedirectToAction("Index");
         }
 
         public RedirectToActionResult RemoveFromShoppingCart(int bookId)
