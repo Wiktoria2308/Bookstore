@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="../build/BokmalensWebbshop.props" />
+</Project>

@@ -1,0 +1,51 @@
+﻿@model ShoppingCartViewModel
+
+@if (Model.ShoppingCart.ShoppingCartItems.Count == 0)
+{
+    <h2 class="mt-5" style="font-weight:400;">Your shopping cart is empty.</h2>
+}
+else
+{
+    <h2 class="mt-5">Your shopping cart</h2>
+    <h5 class="mb-4" style="font-weight:300">Here are the fantastic books in your shopping cart.</h5>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Selected amount</th>
+                <th>Book</th>
+                <th class="text-right">Price</th>
+                <th class="text-right">Subtotal</th>
+                <th class="text-right"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var line in Model.ShoppingCart.ShoppingCartItems)
+            {
+                <tr>
+                    <td class="text-center">@line.Amount</td>
+                    <td class="text-left">@line.Book.Title</td>
+                    <td class="text-right">@line.Book.Price.ToString("c")</td>
+                    <td class="text-right">
+                        @((line.Amount * line.Book.Price).ToString("c"))
+                    </td>
+                    <td class="text-center"><a asp-controller="ShoppingCart" asp-action="RemoveFromShoppingCart" asp-route-bookId="@line.Book.BookId">Remove</a></td>
+                </tr>
+            }
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="3" class="text-right">Total:</td>
+                <td class="text-right">
+                    @Model.ShoppingCartTotal.ToString("c")
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+
+
+    <div class="text-center">
+        <a class="btn btn-primary" asp-controller="Order" asp-action="Checkout">Check out now!</a>
+    </div>
+}
+
+

@@ -1,0 +1,29 @@
+﻿@model HomeViewModel
+
+
+@{
+    ViewData["Title"] = "Bokmal Bookstore";
+}
+
+
+<partial name="_Carousel" />
+
+<div class="hero-image-home mt-5">
+    <div class="hero-text-home">
+        <h1 class="hero-title">Welcome</h1>
+    </div>
+</div>
+
+<h4 class=" mt-5 mb-3 text-uppercase" style="font-weight: 300;">Books of the week</h4>
+
+
+<div class="row mb-5" id="booksoftheweek" style="padding-right: 2rem; padding-left: 2rem; padding-top:1.5rem; padding-bottom:1.5rem; ">
+
+    @foreach (var book in Model.BooksOfTheWeek)
+    {
+        <partial name="_BookCard" model="book" />
+    }
+
+</div>
+
+

@@ -1,0 +1,28 @@
+﻿@model Book
+
+
+<div class="col-sm-6 col-lg-4 col-md-6 col-xl-3 mb-2 mt-2">
+    <div class="card" style="width: 15rem; background-color:white;  ">
+        
+    <img src="~/images/@Model.ImageUrl" alt="@Model.Title" class="card-img-top mx-auto mt-3" style=" width:10rem; height:15rem;">
+    <div class="card-body ml-1 pb-0">
+         
+        <p class="card-title" style="font-weight:400; font-size:medium;">
+            <a asp-controller="Book" asp-action="Details" asp-route-id="@Model.BookId">@Model.Title</a>
+        </p>
+        <p class="card-subtitle"  style="font-weight:300; font-size:small;">@Model.Author</p>
+        <p class="card-text mt-3" style="font-weight:400; color:#fc6a03;font-size:larger;">@Model.Price.ToString("c")</p>
+    
+    <div class="addToCart text-center">
+        <p class="button">
+            <a class="btn btn-primary"  style="background-color:#fc7c41; border:0;width:12rem;"
+               asp-controller="ShoppingCart"
+               asp-action="AddToShoppingCart"
+               asp-route-bookId="@Model.BookId">Add to cart</a>
+        </p>
+    </div>
+    </div>
+    </div>
+    </div>
+
+
