@@ -10,6 +10,7 @@ services:
       - ASPNETCORE_ENVIRONMENT=Development
     volumes:
       - /Users/wiktoria/Downloads/BokmalensWebbshop:/app
+      - dataprotection:/root/.aspnet/DataProtection-Keys
     command: ["dotnet", "watch", "run", "--urls=http://+:8080"]
 
   db:
@@ -25,7 +26,8 @@ services:
       interval: 5s
       timeout: 5s
       retries: 10
-
+volumes:
+  dataprotection:
 # services:
 #   app:
 #     build: .
