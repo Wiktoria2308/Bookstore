@@ -1,6 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 using BokmalensWebbshop.Models;
+using System;
+
 
 namespace BokmalensWebbshop.Data
 {
@@ -8,9 +10,17 @@ namespace BokmalensWebbshop.Data
     {
         public AppDbContext CreateDbContext(string[] args)
         {
-            var optionsBuilder = new DbContextOptionsBuilder<AppDbContext>();
-            optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Database=bokmalens;Username=postgres;Password=Bokmalens2025!");
-            return new AppDbContext(optionsBuilder.Options);
+        var optionsBuilder = new DbContextOptionsBuilder<AppDbContext>();
+
+        var connectionString = Environment.GetEnvironmentVariable("DB_CONNECTION");
+
+        if (string.IsNullOrEmpty(connectionString))
+        {
+            throw new InvalidOperationException("Missing DB_CONNECTION environment variable.");
+        }
+
+        optionsBuilder.UseNpgsql(connectionString);
+        return new AppDbContext(optionsBuilder.Options);
         }
     }
 }
