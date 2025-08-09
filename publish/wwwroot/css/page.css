@@ -71,9 +71,6 @@
     .hero-image-home {
         display:none;
     }
-    #booksoftheweek {
-        border: 1px solid orangered;
-    }
 }
 
 @media (max-width: 991px) {

@@ -1,6 +1,7 @@
 ﻿@model Book
 
-    <img class="mt-5 mb-4" alt="@Model.Title" src="~/images/@Model.ImageUrl" style=" width:15rem;" />
+    <img class="mt-5 mb-4" alt="@Model.Title" src="~/images/@Model.ImageUrl" style=" max-width:15rem;" />
+
     <div class="caption-full mt-3 mb-3">
         <h3>
             <a href="#">@Model.Title</a>
@@ -8,10 +9,10 @@
         <p style="font-weight:300; font-size:medium;">@Model.Author</p>
      
         <p style="font-weight:400; width:40rem; ">@Model.Description</p>
-        <p class="pull-right" style="font-weight:400; color:#fc6a03;font-size:larger;">@Model.Price.ToString("c")</p>
+        <p class="pull-right" style="font-weight:400; color:#fc6a03;font-size:larger;">@Model.Price.ToString("c", new System.Globalization.CultureInfo("sv-SE"))</p>
         <div class="addToCart">
             <p class="button">
-                <a class="btn btn-primary" style="background-color: #fc7c41; border:0;width:12rem;"
+                <a class="btn btn-primary" style="background-color: #E94819; border:0;width:12rem;"
                    asp-controller="ShoppingCart"
                    asp-action="AddToShoppingCart"
                    asp-route-bookId="@Model.BookId">Add to cart</a>

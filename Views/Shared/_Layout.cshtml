@@ -14,13 +14,15 @@
         integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous" />
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik+Dirt&display=swap" rel="stylesheet">
+
 
 </head>
 
-<body>
+<body class="d-flex flex-column min-vh-100">
     <header>
         <nav
-            class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow fixed-top" >
+            class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white box-shadow fixed-top" >
             <div class="container">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
                     <img src="~/images/bokmal_logo.png" alt="Bokmalen Logo" style="height: 40px;" />
@@ -47,13 +49,14 @@
             </div>
         </nav>
     </header>
-    <div class="container pages-container" style="padding-top: 4rem;">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
+<main role="main" class="flex-fill">
+    <div class="container pages-container" style="padding-top: 4rem; padding-bottom: 4rem;">
+        @RenderBody()
     </div>
+</main>
 
-    <footer class="border-top footer text-muted">
+
+      <footer class="border-top footer text-muted flex-1">
         <div class="container">
             <ul class="d-sm-inline-flex" style="list-style-type: none;">
                 <li class="mr-2"> &copy; 2021 - BokmalensWebbshop - </li>
@@ -61,9 +64,6 @@
                 <li><a asp-area="" asp-controller="Contact" asp-action="Index">Contact</a></li>
 
             </ul>
-
-
-
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

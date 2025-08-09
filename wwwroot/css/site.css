@@ -1,7 +1,17 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
 
+.container {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
 
+}
+
+.btn-primary {
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+  color: #fff;
+}
 a.navbar-brand {
   white-space: normal;
   text-align: center;
@@ -13,14 +23,15 @@ a {
     color:black;
     text-decoration:none;
 
+}.navbar {
+        padding: .8rem 1rem;
 }
 
-
-.btn-primary {
-    color: #fff;
-    background-color: #1b6ec2;
-    border-color: #1861ac;
+.card {
+  border-radius: 0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
+
 
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
   color: #fff;
@@ -105,13 +116,11 @@ html {
 }
 
 body {
-    /* Margin bottom by footer height */
-    margin-bottom: 60px;
+
+    background-color: #fcf9f5;
     
 }
 .footer {
-  position: absolute;
-  bottom: 0;
   width: 100%;
   white-space: nowrap;
   line-height: 60px; /* Vertically center the text there */

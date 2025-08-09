@@ -44,6 +44,13 @@
     left: 50%;
     transform: translate(-50%, -50%);
     color: black;
+    width: 100%;
+}
+
+.hero-title {
+   font-family: "Rubik Dirt", system-ui;
+   margin: 0;
+
 }
 
 .hero-image-home {
@@ -71,8 +78,8 @@
     .hero-image-home {
         display:none;
     }
-    #booksoftheweek {
-        border: 1px solid orangered;
+    .hero-text {
+        white-space: nowrap;
     }
 }
 
