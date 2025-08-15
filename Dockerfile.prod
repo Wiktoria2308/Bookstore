@@ -1,12 +1,11 @@
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /app
-COPY *.csproj ./
-RUN dotnet restore
-COPY . .
+COPY BokmalensWebbshop/*.csproj ./BokmalensWebbshop/
+RUN dotnet restore BokmalensWebbshop/BokmalensWebbshop.csproj
+COPY BokmalensWebbshop/ ./BokmalensWebbshop/
 RUN dotnet publish BokmalensWebbshop/BokmalensWebbshop.csproj -c Release -o /app/publish
 
-FROM mcr.microsoft.com/dotnet/aspnet:8.0
+FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS runtime
 WORKDIR /app
-COPY --from=build /app/publish .
-EXPOSE 8080
+COPY --from=build /app/publish ./
 CMD ["dotnet", "BokmalensWebbshop.dll"]
