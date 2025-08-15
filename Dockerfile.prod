@@ -6,12 +6,11 @@ RUN dotnet restore
 
 COPY . .
 
+COPY appsettings.Production.json ./  
+
 RUN dotnet clean
 RUN rm -rf /app/publish
-
 RUN dotnet publish -c Release -o /app/publish
-
-COPY BokmalensWebbshop/appsettings.Production.json /app/publish/
 
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS runtime
 WORKDIR /app
