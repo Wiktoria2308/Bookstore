@@ -18,6 +18,10 @@ a.navbar-brand {
   word-break: break-all;
 }
 
+.navbar-toggler {
+      margin-right: 1rem !important;
+}
+
 /* Provide sufficient contrast against white background */
 a {
     color:black;

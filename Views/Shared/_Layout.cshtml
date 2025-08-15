@@ -56,16 +56,32 @@
 </main>
 
 
-      <footer class="border-top footer text-muted flex-1">
-        <div class="container">
-            <ul class="d-sm-inline-flex" style="list-style-type: none;">
-                <li class="mr-2"> &copy; 2021 - BokmalensWebbshop - </li>
-                <li class="mr-2"> <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a></li>
-                <li><a asp-area="" asp-controller="Contact" asp-action="Index">Contact</a></li>
+  <footer class="border-top footer text-muted">
+    <div class="container">
+        <div class="row pt-5">
+            <div class="col-md-6 mb-3 mb-md-0 text-center text-md-start">
+                <img src="~/images/bokmal_logo.png" alt="Bokmalen Logo" style="height:50px;">
+            </div>
 
-            </ul>
+           <div class="col-md-6 text-center text-md-end">
+                <ul class="list-inline mb-0">
+                    <li class="list-inline-item">
+                        <a asp-area="" asp-controller="Home" asp-action="Privacy" class="text-muted text-decoration-none">Privacy</a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a asp-area="" asp-controller="Contact" asp-action="Index" class="text-muted text-decoration-none">Contact</a>
+                    </li>
+                </ul>
+            </div>
         </div>
-    </footer>
+           <div class="row mt-3 pb-3">
+            <div class="col text-center">
+                &copy; 2021 - Bokmal Online Bookstore
+            </div>
+        </div>
+    </div>
+</footer>
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

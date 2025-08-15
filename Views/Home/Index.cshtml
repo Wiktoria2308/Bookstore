@@ -5,13 +5,10 @@
     ViewData["Title"] = "Bokmal Bookstore";
 }
 
-<div class="hero-image-home mt-5">
-</div>
-
-<h4 class=" mt-5 mb-3 text-uppercase ml-3" style="font-weight: 300;">Books of the week</h4>
+<h4 class=" mt-5 mb-0 text-uppercase ml-4" style="font-weight: 400; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);">Books of the week</h4>
 
 
-<div class="d-flex flex-wrap" id="booksoftheweek" style="padding-top:1.5rem; padding-bottom:1.5rem; ">
+  <div class="book-carousel d-flex flex-row flex-nowrap overflow-auto">
 
     @foreach (var book in Model.BooksOfTheWeek)
     {

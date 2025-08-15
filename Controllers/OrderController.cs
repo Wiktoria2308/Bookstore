@@ -48,7 +48,7 @@ namespace BokmalensWebbshop.Controllers
 
         public IActionResult CheckoutComplete()
         {
-            ViewBag.CheckoutCompleteMessage = "Thanks for your order.";
+            ViewBag.CheckoutCompleteMessage = "Thanks for your order! Time to cozy up with some good books soon.";
 
             return View();
         }
