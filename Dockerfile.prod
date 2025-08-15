@@ -11,7 +11,7 @@ RUN rm -rf /app/publish
 
 RUN dotnet publish -c Release -o /app/publish
 
-COPY appsettings.Production.json /app/publish/
+COPY BokmalensWebbshop/appsettings.Production.json /app/publish/
 
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS runtime
 WORKDIR /app
