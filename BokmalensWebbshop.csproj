@@ -20,5 +20,7 @@
   <ItemGroup>
     <Folder Include="wwwroot\images\" />
   </ItemGroup>
-
+  <Target Name="PrePublishClean" BeforeTargets="PrepareForPublish">
+    <RemoveDir Directories="wwwroot/Identity/lib/bootstrap" />
+  </Target>
 </Project>
