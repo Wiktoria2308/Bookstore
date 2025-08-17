@@ -28,25 +28,44 @@ namespace BokmalensWebbshop
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            // Pobierz środowisko
+            var envName = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
+
+            string connectionString;
+
+            if (envName == "Production")
+            {
+                var host = Environment.GetEnvironmentVariable("DB_HOST");
+                var db = Environment.GetEnvironmentVariable("POSTGRES_DB");
+                var user = Environment.GetEnvironmentVariable("POSTGRES_USER");
+                var password = Environment.GetEnvironmentVariable("POSTGRES_PASSWORD");
+
+                connectionString = $"Host={host};Database={db};Username={user};Password={password}";
+            }
+            else
+            {
+                connectionString = Configuration.GetConnectionString("DefaultConnection");
+            }
+
             services.AddDbContext<AppDbContext>(options =>
-            options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
+                options.UseNpgsql(connectionString));
 
             services.AddDefaultIdentity<IdentityUser>().AddEntityFrameworkStores<AppDbContext>();
 
 
             services.AddScoped<IBookRepository, BookRepository>();
-           services.AddScoped<ICategoryRepository, CategoryRepository>();
+            services.AddScoped<ICategoryRepository, CategoryRepository>();
 
             services.AddScoped<IOrderRepository, OrderRepository>();
             services.AddScoped<ShoppingCart>(sp => ShoppingCart.GetCart(sp));
 
             services.AddHttpContextAccessor();
-          
+
             services.AddSession();
 
             services.AddControllersWithViews();
             services.AddRazorPages();
-          
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -56,7 +75,7 @@ namespace BokmalensWebbshop
             {
                 app.UseDeveloperExceptionPage();
             }
-          
+
             // app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseSession();
